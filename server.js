@@ -4,15 +4,16 @@ const app= express();
 const connect = require('./mongodb/config');
 const bodyParser = require('body-parser')
 const UserRouter=require('./routers/userrouter')
-const signupValidation=require('./validator/SigninValidation')
+const CustomerRouter=require('./routers/CustomerRouter')
 app.use(bodyParser.json())
+app.use('/customer',CustomerRouter)
+app.use('/user',UserRouter)
 dotenv.config();
 
 const PORT = process.env.PORT;
 
 connect();
 
-app.use('/user',UserRouter)
 app.listen(PORT, () => { console.log(`Server started at ${PORT}`) })
 
 
