@@ -20,6 +20,14 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
+    role: {
+      type: String,
+      required: true,
+    },
+    PumpId: {
+      type: String,
+      required: true,
+    },
 },
 { timestamps: true }
 );
