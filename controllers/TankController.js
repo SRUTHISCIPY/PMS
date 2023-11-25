@@ -1,7 +1,7 @@
 const Tank = require("../models/TankSchema")
 module.exports={
   createTank:async(req,res)=>{
-    const {TankNumber,Volume,Product,ProductCode,Quantity,note}=req.body;
+    const {TankNumber,Volume,Product,ProductCode,Quantity,note,Active}=req.body;
     try{
         const result=await Tank.create({
             TankNumber,
@@ -9,7 +9,8 @@ module.exports={
             Product,
             ProductCode,
             Quantity,
-            note
+            note,
+            Active
         });
         res.status(200).json({result});
     }
@@ -49,7 +50,8 @@ updateTank:async(req,res)=>{
             Product:req.body.Product,
             ProductCode:req.body.ProductCode,
             Quantity:req.body.Quantity,
-            note:req.body.note
+            note:req.body.note,
+            Active:req.body.Active
          });
          res.status(200).json("success");
     }

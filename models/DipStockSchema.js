@@ -36,7 +36,7 @@ const DipStockSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        Amount: {
+        Price: {
             type: String,
             required: true,
         },

@@ -2,7 +2,7 @@ const DipStock = require("../models/DipStockSchema")
 module.exports={
   createDipStock:async(req,res)=>{
     const {Date,InvoiceNumber,VehicleNumber,AgentName,Product,Quantity,
-        Amount,Note,TotalQuantityFilled,RemainingQuantity,PhoneNumber,
+        Price,Note,TotalQuantityFilled,RemainingQuantity,PhoneNumber,
         LFRAmount,Rate,VAT,Cess,TankDistribution}=req.body;
     try{
         const result=await DipStock.create({
@@ -12,7 +12,7 @@ module.exports={
             AgentName,
             Product,
             Quantity,
-            Amount,
+            Price,
             Note,
             TotalQuantityFilled,
             RemainingQuantity,
@@ -62,7 +62,7 @@ updateDipStock:async(req,res)=>{
             AgentName:req.body.AgentName,
             Product:req.body.Product,
             Quantity:req.body.Quantity,
-            Amount:req.body.Amount,
+            Price:req.body.Price,
             Note:req.body.Note,
             TotalQuantityFilled:req.body.TotalQuantityFilled,
             RemainingQuantity:req.body.RemainingQuantity,

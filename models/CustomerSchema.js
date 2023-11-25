@@ -26,10 +26,10 @@ const CustomerSchema = new Schema(
             type: String,
             required: true,
         },
-        HomePhoneNo: {
-            type: String,
-            required: true,
-        },
+        // HomePhoneNo: {
+        //     type: String,
+        //     required: true,
+        // },
         EmailID: {
             type: String,
             required: true,

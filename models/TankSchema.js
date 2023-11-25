@@ -27,6 +27,10 @@ const TankSchema = new Schema(
         type: String,
         required: true,
       },
+    Active: {
+        type: Boolean,
+        required: true,
+      },
 },
 { timestamps: true }
 );

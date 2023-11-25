@@ -1,10 +1,33 @@
 const Employee = require("../models/EmployeeSchema")
 module.exports={
   createEmployee:async(req,res)=>{
-    const {UserId}=req.body;
+    const {FirstName,LastName,DOB,PhoneNumber,Email,TemporaryAddress,
+        PermanentAddress,AadhaarId,VoterId,
+        PANCardNumber,PFNumber,ESINumber,UAN,
+        Designation,Department,Salary,Note,AccountNumber,
+        IFSCCode,Branch}=req.body;
     try{
         const result=await Employee.create({
-            UserId
+            FirstName,
+            LastName,
+            DOB,
+            PhoneNumber,
+            Email,
+            TemporaryAddress,
+            PermanentAddress,
+            AadhaarId,
+            VoterId,
+            PANCardNumber,
+            PFNumber,
+            ESINumber,
+            UAN,
+            Designation,
+            Department,
+            Salary,
+            Note,
+            AccountNumber,
+            IFSCCode,
+            Branch
         });
         res.status(200).json({result});
     }
@@ -37,9 +60,33 @@ getEmployeeById:async(req,res)=>{
 },
 updateEmployee:async(req,res)=>{
     const id=req.params.id
+    const {FirstName,LastName,DOB,PhoneNumber,Email,TemporaryAddress,
+        PermanentAddress,AadhaarId,VoterId,
+        PANCardNumber,PFNumber,ESINumber,UAN,
+        Designation,Department,Salary,Note,AccountNumber,
+        IFSCCode,Branch}=req.body;
     try {
          await Employee.findByIdAndUpdate(id,{
-            UserId:req.body.UserId
+            FirstName,
+            LastName,
+            DOB,
+            PhoneNumber,
+            Email,
+            TemporaryAddress,
+            PermanentAddress,
+            AadhaarId,
+            VoterId,
+            PANCardNumber,
+            PFNumber,
+            ESINumber,
+            UAN,
+            Designation,
+            Department,
+            Salary,
+            Note,
+            AccountNumber,
+            IFSCCode,
+            Branch
          });
          res.status(200).json("success");
     }
