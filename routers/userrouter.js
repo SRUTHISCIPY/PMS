@@ -3,6 +3,7 @@ const router = express.Router();
 const UserController = require("../controllers/usercontroller");
 
 // POST request for creating a new user.
+
 router.post("/signup", UserController.signup);
 
 // GET request for user login.
