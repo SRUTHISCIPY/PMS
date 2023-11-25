@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const app= express();
 const connect = require('./mongodb/config');
 const bodyParser = require('body-parser')
+const cors = require('cors')
 const PumpRouter=require('./routers/PumpRouter')
 const UserRouter=require('./routers/userrouter')
 const EmployeeRouter=require('./routers/EmployeeRouter')
@@ -14,6 +15,7 @@ const InventoryManagementRouter=require('./routers/InventoryManagementRouter')
 const ProductRouter=require('./routers/ProductRouter')
 
 
+app.use(cors())
 app.use(bodyParser.json())
 app.use('/customer',CustomerRouter)
 app.use('/user',UserRouter)
