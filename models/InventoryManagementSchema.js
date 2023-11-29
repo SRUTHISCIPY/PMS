@@ -24,6 +24,9 @@ const inventorymanagementDetailsSchema = new mongoose.Schema({
     ExpiryDate: {
         type: String
     },
+    Description: {
+        type: String
+    },
     // Tax: {
     //     type: Number
     // },

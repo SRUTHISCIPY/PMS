@@ -10,4 +10,4 @@ router.get('/getemployeebyid/:id',Employeecontroller.getEmployeeById)
 router.put('/updateemployee/:id',Employeecontroller.updateEmployee)
 router.delete('/deleteemployee/:id',Employeecontroller.deleteEmployee)
 
-module.exports = router;                                                
+module.exports = router;                                                 
