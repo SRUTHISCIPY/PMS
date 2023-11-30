@@ -1,7 +1,7 @@
 const InventoryManagement = require("../models/InventoryManagementSchema")
 module.exports={
   createInventoryManagement:async(req,res)=>{
-    const {SKUNo,ItemName,ItemCategory,CurrentStock,Price,Brand,ExpiryDate}=req.body;
+    const {SKUNo,ItemName,ItemCategory,CurrentStock,Price,Brand,ExpiryDate,Description}=req.body;
     try{
         const result=await InventoryManagement.create({
             SKUNo,
@@ -10,7 +10,8 @@ module.exports={
             CurrentStock,
             Price,
             Brand,
-            ExpiryDate
+            ExpiryDate,
+            Description
         });
         res.status(200).json({result});
     }
@@ -52,7 +53,8 @@ updateInventoryManagement:async(req,res)=>{
             CurrentStock:req.body.CurrentStock,
             Price:req.body.Price,
             Brand:req.body.Brand,
-            ExpiryDate:req.body.ExpiryDate
+            ExpiryDate:req.body.ExpiryDate,
+            Description:req.body.Description
          });
          res.status(200).json("success");
     }
