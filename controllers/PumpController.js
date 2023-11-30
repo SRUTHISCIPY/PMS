@@ -52,7 +52,6 @@ updatePump:async(req,res)=>{
     catch(err) {
         res.status(400).json({err});
         }
-
     },
 deletePump:async(req,res)=>{
         const id=req.params.id

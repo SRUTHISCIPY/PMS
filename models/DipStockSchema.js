@@ -29,7 +29,7 @@ const DipStockSchema = new mongoose.Schema(
             required: true,
         },
         Product: {
-            type: Date,
+            type: String,
             required: true,
         },
         Quantity: {
@@ -45,7 +45,7 @@ const DipStockSchema = new mongoose.Schema(
             required: true,
         },
         TotalQuantityFilled: {
-            type: Date,
+            type: String,
             required: true,
         },
         RemainingQuantity: {
