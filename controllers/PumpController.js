@@ -63,7 +63,6 @@ module.exports = {
                 PhoneNumber: req.body.PhoneNumber,
                 Address: req.body.Address,
                 email: req.body.email,
-                Tank: req.body.Tank
             });
             res.status(200).json("success");
         }
