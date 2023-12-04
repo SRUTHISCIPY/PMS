@@ -20,7 +20,7 @@ module.exports = {
         res.status(404).json(errors);
       } else {
         await User.findOne({ email }).then(async (exist) => {
-          if (exist) {
+          if (exist) { 
             errors.email = "Email already in use";
             res.status(404).json(errors); 
           } else {
