@@ -72,6 +72,10 @@ const DipStockSchema = new mongoose.Schema(
             type: Number,
             required: true,
         },
+        PumpId:{
+            type:String,
+            required:true
+        },
         TankDistribution:[TankDistributionSchema],
     },
     { timestamps: true }

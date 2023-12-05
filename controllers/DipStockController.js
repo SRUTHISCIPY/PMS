@@ -1,55 +1,27 @@
 const DipStock = require("../models/DipStockSchema");
 const PumpSchema = require("../models/PumpSchema");
-// const Tank = require("../models/TankSchema");
 
 async function AddQuantity(pumpID, UpdateTank) {
-
   try {
-    const pump = await PumpSchema.findById(pumpID)
+    const pump = await PumpSchema.findById(pumpID);
     if (!pump) {
-      console.log("No Pump Found")
+      console.log("No Pump Found");
     } else {
-      const Tank = pump.Tank.find(
-        tank => tank._id == UpdateTank.Tank
-      )
+      const Tank = pump.Tank.find((tank) => tank._id == UpdateTank.Tank);
       if (!Tank) {
-        console.log("Tank Not found")
-      }
-      else{
-        const TankClone = Tank
-        TankClone.Quantity = parseInt(UpdateTank.Quantity)+parseInt(TankClone.Quantity)
-        Object.assign(Tank,TankClone);
-        await pump.save()
-        console.log("May be Updated")
+        console.log("Tank Not found");
+      } else {
+        const TankClone = Tank;
+        TankClone.Quantity =
+          parseInt(UpdateTank.Quantity) + parseInt(TankClone.Quantity);
+        Object.assign(Tank, TankClone);
+        await pump.save();
+        console.log("Tank Quantity Updated");
       }
     }
+  } catch (err) {
+    console.log(err);
   }
-  catch (err) {
-    console.log(err)
-  }
-
-  // const pump = await PumpSchema.findById(pumpID)
-  // if (pump) {
-  //   const tanks = pump.Tank
-  //   tanks.map((item, index) => {
-  //     if (Tank.Tank == item._id) {
-  //       console.log(Tank.Quantity, "+", item.Quantity, "=", parseInt(Tank.Quantity) + parseInt(item.Quantity))
-  //       try {
-  //        PumpSchema.findByIdAndUpdate(pumpID, {
-  //           Tank:{
-
-  //           }
-  //         })
-  //       }
-  //       catch(error){
-  //         console.log(error)
-  //       }
-
-  //     } else {
-  //       console.log("No")
-  //     }
-  //   })
-  // }
 }
 module.exports = {
   createDipStock: async (req, res) => {
@@ -90,21 +62,32 @@ module.exports = {
         VAT,
         Cess,
         TankDistribution,
+        PumpId
       });
-      res.status(200).json({ result });
       const tanks = result.TankDistribution;
       tanks.map((tank) => {
         AddQuantity(PumpId, tank);
       });
+      res.status(200).json({ result });
     } catch (err) {
       res.status(400).json({ err });
     }
   },
 
+  // getDipStock: async (req, res) => {
+  //   // const id=req.params.id
+  //   try {
+  //     const result1 = await DipStock.find();
+  //     res.status(200).json({ result1 });
+  //   } catch (err) {
+  //     res.status(400).json({ err });
+  //   }
+  // },
+
   getDipStock: async (req, res) => {
-    // const id=req.params.id
+    const id=req.params.id
     try {
-      const result1 = await DipStock.find();
+      const result1 = await DipStock.find({pumpId:id});
       res.status(200).json({ result1 });
     } catch (err) {
       res.status(400).json({ err });
