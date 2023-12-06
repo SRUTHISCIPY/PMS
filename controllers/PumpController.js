@@ -8,7 +8,9 @@ module.exports = {
                 PhoneNumber,
                 Address,
                 email,
-                Tank: []
+                Tank: [],
+                Employee:[],
+                Fuel:[]
             });
             res.status(200).json({ result });
         }
@@ -16,7 +18,7 @@ module.exports = {
             res.status(400).json({ err });
         }
     },
-
+   
     getPump: async (req, res) => {
         const id = req.params.id
         try {
@@ -45,6 +47,21 @@ module.exports = {
             await Pump.findByIdAndUpdate(id, {
                 $push: {
                     Tank: req.body.Tank
+                }
+            });
+            res.status(200).json("success");
+        }
+        catch (err) {
+            res.status(400).json({ err });
+        }
+
+    },
+    createFuel: async (req, res) => {
+        const id = req.params.id
+        try {
+            await Pump.findByIdAndUpdate(id, {
+                $push: {
+                    Fuel: req.body.Fuel
                 }
             });
             res.status(200).json("success");
