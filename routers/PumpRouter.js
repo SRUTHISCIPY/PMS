@@ -5,6 +5,7 @@ const Pumpcontroller=require('../controllers/PumpController')
 
 router.post('/createpump',Pumpcontroller.createPump)
 router.put('/createTank/:id',Pumpcontroller.createTank)
+router.put('/createFuel/:id',Pumpcontroller.createFuel)
 router.get('/getpump',Pumpcontroller.getPump)
 router.get('/getpumpbyid/:id',Pumpcontroller.getPumpById)
 router.put('/updatepump/:id',Pumpcontroller.updatePump)

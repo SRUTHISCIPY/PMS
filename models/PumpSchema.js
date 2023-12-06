@@ -31,7 +31,28 @@ const TankSchema = new mongoose.Schema(
       },
 
 });
+const EmployeeSchema = new mongoose.Schema(
+  {
+    EmployeeName: {
+      type: String,
 
+    },
+    EmployeeId: {
+      type: String,
+
+    },
+  });
+  const FuelSchema = new mongoose.Schema(
+    {
+      FuelName: {
+        type: String,
+  
+      },
+      FuelPricePerLitre: {
+        type: String,
+  
+      },
+    });
 const PumpSchema = new Schema(
   {
     PumpName: {
@@ -50,7 +71,9 @@ const PumpSchema = new Schema(
       type: String,
       unique: true,
     },
-    Tank:[TankSchema]
+    Tank:[TankSchema],
+    Employee:[EmployeeSchema],
+    Fuel:[FuelSchema]
 },
 { timestamps: true }
 );
