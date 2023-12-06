@@ -62,7 +62,7 @@ module.exports = {
         VAT,
         Cess,
         TankDistribution,
-        PumpId
+        PumpId,
       });
       const tanks = result.TankDistribution;
       tanks.map((tank) => {
@@ -73,21 +73,10 @@ module.exports = {
       res.status(400).json({ err });
     }
   },
-
-  // getDipStock: async (req, res) => {
-  //   // const id=req.params.id
-  //   try {
-  //     const result1 = await DipStock.find();
-  //     res.status(200).json({ result1 });
-  //   } catch (err) {
-  //     res.status(400).json({ err });
-  //   }
-  // },
-
   getDipStock: async (req, res) => {
-    const id=req.params.id
+    const id = req.params.id;
     try {
-      const result1 = await DipStock.find({pumpId:id});
+      const result1 = await DipStock.find({ PumpId: id });
       res.status(200).json({ result1 });
     } catch (err) {
       res.status(400).json({ err });
@@ -122,6 +111,7 @@ module.exports = {
         VAT: req.body.VAT,
         Cess: req.body.Cess,
         TankDistribution: req.body.TankDistribution,
+        PumpId: req.body.PumpId,
       });
       res.status(200).json("success");
     } catch (err) {
