@@ -13,7 +13,11 @@ const ProductSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
-      RatePerLtr: {
+      NozzleId: {
+        type: String,
+        required: true,
+      },
+      NozzleName: {
         type: String,
         required: true,
       },
@@ -95,6 +99,10 @@ const SalesAndBillingSchema = new mongoose.Schema(
         required: true,
       },
       ExcessAmount: {
+        type: String,
+        required: true,
+      },
+      Date: {
         type: String,
         required: true,
       },

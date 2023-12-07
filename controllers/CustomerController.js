@@ -1,4 +1,5 @@
 const Customer = require("../models/CustomerSchema")
+const Pump = require("../models/PumpSchema")
 module.exports={
   createCustomer:async(req,res)=>{
     const {Category,Name,Address,MobileNo,GSTIN,OfficePhoneNo,HomePhoneNo,EmailID,CreditBalance,CreditLimit,
@@ -25,12 +26,27 @@ module.exports={
             Operator,
             Active
         });
-        res.status(200).json({result});
-    }
-        catch(err){
-        res.status(400).json({err});
+        try {
+            await Pump.findByIdAndUpdate(req.params.id, {
+                $push: {
+                    Customer: [{
+                        CustomerId: result._id,
+                        CustomerName: result.Name
+                    }]
+                }
+            });
+            res.status(200).json("success");
         }
-    },
+        catch (err) {
+            res.status(401).json({err});
+        }
+
+    }
+    catch (err) {
+        res.status(400).json({ err });
+    }
+},
+
    
 getCustomer:async(req,res)=>{
     const id=req.params.id

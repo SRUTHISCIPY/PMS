@@ -1,4 +1,5 @@
 const Product = require("../models/ProductSchema")
+const Pump = require("../models/PumpSchema")
 module.exports={
   createProduct:async(req,res)=>{
     const {CategoryName,CategoryImage,Description,product}=req.body;
@@ -9,12 +10,27 @@ module.exports={
             Description,
             product
         });
-        res.status(200).json({result});
-    }
-        catch(err){
-        res.status(400).json({err});
+        try {
+            await Pump.findByIdAndUpdate(req.params.id, {
+                $push: {
+                    Product: [{
+                        ProductId: result._id,
+                        ProductName: result.Name
+                    }]
+                }
+            });
+            res.status(200).json("success");
         }
-    },
+        catch (err) {
+            res.status(401).json({err});
+        }
+
+    }
+    catch (err) {
+        res.status(400).json({ err });
+    }
+},
+
    
 getProduct:async(req,res)=>{
     const id=req.params.id

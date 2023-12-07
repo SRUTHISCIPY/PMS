@@ -42,6 +42,61 @@ const EmployeeSchema = new mongoose.Schema(
 
     },
   });
+  const CustomerSchema = new mongoose.Schema(
+    {
+      CustomerName: {
+        type: String,
+  
+      },
+      CustomerId: {
+        type: String,
+  
+      },
+    });
+    const InventoryManagementSchema = new mongoose.Schema(
+      {
+        InventoryManagementName: {
+          type: String,
+    
+        },
+        InventoryManagementId: {
+          type: String,
+    
+        },
+      });
+      const ProductSchema = new mongoose.Schema(
+        {
+          ProductName: {
+            type: String,
+      
+          },
+          ProductId: {
+            type: String,
+      
+          },
+        });
+        const SalesAndBillingSchema = new mongoose.Schema(
+          {
+            SalesAndBillingName: {
+              type: String,
+        
+            },
+            SalesAndBillingId: {
+              type: String,
+        
+            },
+          });
+          const DipstockSchema = new mongoose.Schema(
+            {
+              DipstockName: {
+                type: String,
+          
+              },
+              DipstockId: {
+                type: String,
+          
+              },
+            });
   const FuelSchema = new mongoose.Schema(
     {
       FuelName: {
@@ -73,7 +128,12 @@ const PumpSchema = new Schema(
     },
     Tank:[TankSchema],
     Employee:[EmployeeSchema],
-    Fuel:[FuelSchema]
+    Fuel:[FuelSchema],
+    Customer:[CustomerSchema],
+    InventoryManagement:[InventoryManagementSchema],
+    Product:[ProductSchema],
+    SalesAndBilling:[SalesAndBillingSchema],
+    DipStock:[DipstockSchema]
 },
 { timestamps: true }
 );

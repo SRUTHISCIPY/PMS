@@ -1,4 +1,5 @@
 const InventoryManagement = require("../models/InventoryManagementSchema")
+const Pump = require("../models/PumpSchema")
 module.exports={
   createInventoryManagement:async(req,res)=>{
     const {SKUNo,ItemName,ItemCategory,CurrentStock,Price,Brand,ExpiryDate,Description}=req.body;
@@ -13,13 +14,27 @@ module.exports={
             ExpiryDate,
             Description
         });
-        res.status(200).json({result});
-    }
-        catch(err){
-
-        res.status(400).json({err});
+        try {
+            await Pump.findByIdAndUpdate(req.params.id, {
+                $push: {
+                    InventoryManagement: [{
+                        InventoryManagementId: result._id,
+                        InventoryManagementName: result.ItemName
+                    }]
+                }
+            });
+            res.status(200).json("success");
         }
-    },
+        catch (err) {
+            res.status(401).json({err});
+        }
+
+    }
+    catch (err) {
+        res.status(400).json({ err });
+    }
+},
+
    
 getInventoryManagement:async(req,res)=>{
     const id=req.params.id
