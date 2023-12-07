@@ -16,7 +16,10 @@ module.exports = {
                 Product: [],
                 SalesAndBilling: [],
                 DipStock: [],
-                Nozzle: []
+                Nozzle: [],
+                CardPayment: [],
+                UPIPayment: [],
+                OtherPayment: []
             });
             res.status(200).json({ result });
         }
@@ -83,6 +86,51 @@ module.exports = {
             await Pump.findByIdAndUpdate(id, {
                 $push: {
                     Nozzle: req.body.Nozzle
+                }
+            });
+            res.status(200).json("success");
+        }
+        catch (err) {
+            res.status(400).json({ err });
+        }
+
+    },
+    createCardPayment: async (req, res) => {
+        const id = req.params.id
+        try {
+            await Pump.findByIdAndUpdate(id, {
+                $push: {
+                    CardPayment: req.body.CardPayment
+                }
+            });
+            res.status(200).json("success");
+        }
+        catch (err) {
+            res.status(400).json({ err });
+        }
+
+    },
+    createUPIPayment: async (req, res) => {
+        const id = req.params.id
+        try {
+            await Pump.findByIdAndUpdate(id, {
+                $push: {
+                    UPIPayment: req.body.UPIPayment
+                }
+            });
+            res.status(200).json("success");
+        }
+        catch (err) {
+            res.status(400).json({ err });
+        }
+
+    },
+    createOtherPayment: async (req, res) => {
+        const id = req.params.id
+        try {
+            await Pump.findByIdAndUpdate(id, {
+                $push: {
+                    OtherPayment: req.body.OtherPayment
                 }
             });
             res.status(200).json("success");

@@ -108,6 +108,27 @@ const FuelSchema = new mongoose.Schema(
 
     },
   });
+const CardPaymentSchema = new mongoose.Schema(
+  {
+    Name: {
+      type: String,
+
+    },
+  });
+const UPIPaymentSchema = new mongoose.Schema(
+  {
+    Name: {
+      type: String,
+
+    },
+  });
+const OtherPaymentSchema = new mongoose.Schema(
+  {
+    Name: {
+      type: String,
+
+    },
+  });
 const NozzleSchema = new mongoose.Schema(
   {
     NozzleName: {
@@ -153,7 +174,10 @@ const PumpSchema = new Schema(
     Product: [ProductSchema],
     SalesAndBilling: [SalesAndBillingSchema],
     DipStock: [DipstockSchema],
-    Nozzle:[NozzleSchema]
+    Nozzle: [NozzleSchema],
+    CardPayment: [CardPaymentSchema],
+    UPIPayment: [UPIPaymentSchema],
+    OtherPayment: [OtherPaymentSchema]
   },
   { timestamps: true }
 );
