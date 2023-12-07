@@ -7,30 +7,30 @@ const TankSchema = new mongoose.Schema(
       type: String,
 
     },
-    Volume :{
-      type : String,
+    Volume: {
+      type: String,
 
     },
     Product: {
-        type: String,
+      type: String,
 
-      },
+    },
     ProductCode: {
       type: String,
 
     },
     Quantity: {
-        type: String,
-        required: true,
-      },
+      type: String,
+      required: true,
+    },
     note: {
-        type: String,
-      },
+      type: String,
+    },
     Active: {
-        type: Boolean,
-      },
+      type: Boolean,
+    },
 
-});
+  });
 const EmployeeSchema = new mongoose.Schema(
   {
     EmployeeName: {
@@ -42,100 +42,120 @@ const EmployeeSchema = new mongoose.Schema(
 
     },
   });
-  const CustomerSchema = new mongoose.Schema(
-    {
-      CustomerName: {
-        type: String,
-  
-      },
-      CustomerId: {
-        type: String,
-  
-      },
-    });
-    const InventoryManagementSchema = new mongoose.Schema(
-      {
-        InventoryManagementName: {
-          type: String,
-    
-        },
-        InventoryManagementId: {
-          type: String,
-    
-        },
-      });
-      const ProductSchema = new mongoose.Schema(
-        {
-          ProductName: {
-            type: String,
-      
-          },
-          ProductId: {
-            type: String,
-      
-          },
-        });
-        const SalesAndBillingSchema = new mongoose.Schema(
-          {
-            SalesAndBillingName: {
-              type: String,
-        
-            },
-            SalesAndBillingId: {
-              type: String,
-        
-            },
-          });
-          const DipstockSchema = new mongoose.Schema(
-            {
-              DipstockName: {
-                type: String,
-          
-              },
-              DipstockId: {
-                type: String,
-          
-              },
-            });
-  const FuelSchema = new mongoose.Schema(
-    {
-      FuelName: {
-        type: String,
-  
-      },
-      FuelPricePerLitre: {
-        type: String,
-  
-      },
-    });
+const CustomerSchema = new mongoose.Schema(
+  {
+    CustomerName: {
+      type: String,
+
+    },
+    CustomerId: {
+      type: String,
+
+    },
+  });
+const InventoryManagementSchema = new mongoose.Schema(
+  {
+    InventoryManagementName: {
+      type: String,
+
+    },
+    InventoryManagementId: {
+      type: String,
+
+    },
+  });
+const ProductSchema = new mongoose.Schema(
+  {
+    ProductName: {
+      type: String,
+
+    },
+    ProductId: {
+      type: String,
+
+    },
+  });
+const SalesAndBillingSchema = new mongoose.Schema(
+  {
+    SalesAndBillingName: {
+      type: String,
+
+    },
+    SalesAndBillingId: {
+      type: String,
+
+    },
+  });
+const DipstockSchema = new mongoose.Schema(
+  {
+    DipstockName: {
+      type: String,
+
+    },
+    DipstockId: {
+      type: String,
+
+    },
+  });
+const FuelSchema = new mongoose.Schema(
+  {
+    FuelName: {
+      type: String,
+
+    },
+    FuelPricePerLitre: {
+      type: String,
+
+    },
+  });
+const NozzleSchema = new mongoose.Schema(
+  {
+    NozzleName: {
+      type: String,
+
+    },
+    Opening: {
+      type: String,
+
+    },
+    Closing: {
+      type: String,
+
+    },
+    FuelId: {
+      type: String,
+
+    },
+  });
 const PumpSchema = new Schema(
   {
     PumpName: {
       type: String,
 
     },
-    PhoneNumber :{
-      type : String,
+    PhoneNumber: {
+      type: String,
 
     },
     Address: {
-        type: String,
+      type: String,
 
-      },
+    },
     email: {
       type: String,
       unique: true,
     },
-    Tank:[TankSchema],
-    Employee:[EmployeeSchema],
-    Fuel:[FuelSchema],
-    Customer:[CustomerSchema],
-    InventoryManagement:[InventoryManagementSchema],
-    Product:[ProductSchema],
-    SalesAndBilling:[SalesAndBillingSchema],
-    DipStock:[DipstockSchema]
-},
-{ timestamps: true }
+    Tank: [TankSchema],
+    Employee: [EmployeeSchema],
+    Fuel: [FuelSchema],
+    Customer: [CustomerSchema],
+    InventoryManagement: [InventoryManagementSchema],
+    Product: [ProductSchema],
+    SalesAndBilling: [SalesAndBillingSchema],
+    DipStock: [DipstockSchema],
+    Nozzle:[NozzleSchema]
+  },
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("pump", PumpSchema);

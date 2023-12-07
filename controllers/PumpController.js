@@ -9,8 +9,14 @@ module.exports = {
                 Address,
                 email,
                 Tank: [],
-                Employee:[],
-                Fuel:[]
+                Employee: [],
+                Fuel: [],
+                Customer: [],
+                InventoryManagement: [],
+                Product: [],
+                SalesAndBilling: [],
+                DipStock: [],
+                Nozzle: []
             });
             res.status(200).json({ result });
         }
@@ -18,7 +24,7 @@ module.exports = {
             res.status(400).json({ err });
         }
     },
-   
+
     getPump: async (req, res) => {
         const id = req.params.id
         try {
@@ -62,6 +68,21 @@ module.exports = {
             await Pump.findByIdAndUpdate(id, {
                 $push: {
                     Fuel: req.body.Fuel
+                }
+            });
+            res.status(200).json("success");
+        }
+        catch (err) {
+            res.status(400).json({ err });
+        }
+
+    },
+    createNozzle: async (req, res) => {
+        const id = req.params.id
+        try {
+            await Pump.findByIdAndUpdate(id, {
+                $push: {
+                    Nozzle: req.body.Nozzle
                 }
             });
             res.status(200).json("success");
