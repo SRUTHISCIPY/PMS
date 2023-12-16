@@ -50,6 +50,84 @@ module.exports = {
 
 
     },
+    getCustomer: async (req, res) => {
+        const id = req.params.id
+        try {
+            const result2 = await Pump.findById(id)
+            const customerResult = result2.Customer
+            res.status(200).json({ customerResult});
+        }
+        catch (err) {
+            res.status(400).json({ err });
+        }
+
+
+    },
+    getDipStock: async (req, res) => {
+        const id = req.params.id
+        try {
+            const result2 = await Pump.findById(id)
+            const dipStockResult = result2.DipStock
+            res.status(200).json({ dipStockResult});
+        }
+        catch (err) {
+            res.status(400).json({ err });
+        }
+
+
+    },
+    getEmployee: async (req, res) => {
+        const id = req.params.id
+        try {
+            const result2 = await Pump.findById(id)
+            const employeeResult = result2.Employee
+            res.status(200).json({ employeeResult});
+        }
+        catch (err) {
+            res.status(400).json({ err });
+        }
+
+
+    },
+    getInventoryManagement: async (req, res) => {
+        const id = req.params.id
+        try {
+            const result2 = await Pump.findById(id)
+            const inventoryManagementResult = result2.InventoryManagement
+            res.status(200).json({ inventoryManagementResult});
+        }
+        catch (err) {
+            res.status(400).json({ err });
+        }
+
+
+    },
+    getProduct: async (req, res) => {
+        const id = req.params.id
+        try {
+            const result2 = await Pump.findById(id)
+            const productResult = result2.Product
+            res.status(200).json({ productResult});
+        }
+        catch (err) {
+            res.status(400).json({ err });
+        }
+
+
+    },
+    getSalesAndBilling: async (req, res) => {
+        const id = req.params.id
+        try {
+            const result2 = await Pump.findById(id)
+            const salesAndBillingResult = result2.SalesAndBilling
+            res.status(200).json({ salesAndBillingResult});
+        }
+        catch (err) {
+            res.status(400).json({ err });
+        }
+
+
+    },
     createTank: async (req, res) => {
         const id = req.params.id
         try {
