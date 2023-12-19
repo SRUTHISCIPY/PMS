@@ -13,7 +13,11 @@ const ProductSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
-      RatePerLtr: {
+      NozzleId: {
+        type: String,
+        required: true,
+      },
+      NozzleName: {
         type: String,
         required: true,
       },
@@ -24,43 +28,43 @@ const ProductSchema = new mongoose.Schema(
     });
     const DenominationSchema = new mongoose.Schema(
         {
-      2000: {
+      TwoK: {
         type: Number,
         required: true,
       },
-      500: {
+      FiveH: {
         type: Number,
         required: true,
       },
-      200: {
+      TwoH: {
         type: Number,
         required: true,
       },
-      100: {
+      OneH: {
         type: Number,
         required: true,
       },
-      50: {
+      FiveT: {
         type: Number,
         required: true,
       },
-      20: {
+      TwoT: {
         type: Number,
         required: true,
       },
-      10: {
+      Ten: {
         type: Number,
         required: true,
       },
-      5: {
+      Five: {
         type: Number,
         required: true,
       },
-      2: {
+      Two: {
         type: Number,
         required: true,
       },
-      1: {
+      One: {
         type: Number,
         required: true,
       },
@@ -95,6 +99,10 @@ const SalesAndBillingSchema = new mongoose.Schema(
         required: true,
       },
       ExcessAmount: {
+        type: String,
+        required: true,
+      },
+      Date: {
         type: String,
         required: true,
       },

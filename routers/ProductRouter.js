@@ -3,7 +3,7 @@ const router=express.Router()
 
 const ProductController=require('../controllers/ProductController')
 
-router.post('/createProduct',ProductController.createProduct)
+router.post('/createProduct/:id',ProductController.createProduct)
 // module.exports = router;
 router.get('/getProduct',ProductController.getProduct)
 router.get('/getProductById/:id',ProductController.getProductById)

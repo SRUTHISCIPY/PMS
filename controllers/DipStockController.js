@@ -68,15 +68,29 @@ module.exports = {
       tanks.map((tank) => {
         AddQuantity(PumpId, tank);
       });
-      res.status(200).json({ result });
+      try {
+        await PumpSchema.findByIdAndUpdate(req.params.id, {
+          $push: {
+            DipStock: [{
+              DipStockId: result._id,
+              DipstockName: result.InvoiceNumber
+            }]
+          }
+        });
+        res.status(200).json("success");
+      }
+      catch (err) {
+        res.status(400).json({ err });
+      }
+
     } catch (err) {
       res.status(400).json({ err });
     }
   },
   getDipStock: async (req, res) => {
-    const id = req.params.id;
+    // const id=req.params.id
     try {
-      const result1 = await DipStock.find({ PumpId: id });
+      const result1 = await DipStock.find();
       res.status(200).json({ result1 });
     } catch (err) {
       res.status(400).json({ err });

@@ -3,7 +3,7 @@ const router=express.Router()
 
 const InventoryManagementController=require('../controllers/InventoryManagementController')
 
-router.post('/createInventoryManagement',InventoryManagementController.createInventoryManagement)
+router.post('/createInventoryManagement/:id',InventoryManagementController.createInventoryManagement)
 // module.exports = router;
 router.get('/getInventoryManagement',InventoryManagementController.getInventoryManagement)
 router.get('/getInventoryManagementById/:id',InventoryManagementController.getInventoryManagementById)
